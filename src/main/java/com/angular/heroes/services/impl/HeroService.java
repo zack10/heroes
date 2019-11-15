@@ -47,4 +47,10 @@ public class HeroService implements IHeroService {
 		return null;
 	}
 
+	@Override
+	public HeroEntity insertHero(HeroEntity heroEntity) {
+		HeroEntity savedHero = heroRepository.save(heroEntity);
+		return savedHero;
+	}
+
 }

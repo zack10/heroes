@@ -42,14 +42,12 @@ public class HeroController {
 	public ResponseEntity<List<HeroDto>> getHeroes(){
 		//HeroDto heroDto = new HeroDto();
 		List<HeroEntity> listHeroes = heroService.getHeroes();
-		logger.info("Returned Heroes : " + listHeroes);
 		return new ResponseEntity<List<HeroDto>>(HeroDto.entitiesToDtos(heroService.getHeroes()), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{heroId}", headers = "Accept=application/json")
 	public ResponseEntity<HeroDto> getHeroById(@PathVariable("heroId") Long heroId) {
 		HeroEntity heroEntity = heroService.FindByHeroId(heroId);
-		logger.info("heroEntity : " + heroEntity);
 		HeroDto heroDto = null;
 		if(heroEntity != null) 
 			heroDto = HeroDto.entityToDto(heroEntity);
@@ -59,10 +57,10 @@ public class HeroController {
 	
 	@PostMapping(value = "/", headers = "Accept=application/json")
 	public ResponseEntity<HeroDto> saveHero(@RequestBody HeroDto heroDto){
-		logger.info("Received param : " + heroDto.getName());
-		HeroEntity heroEntity = HeroDto.dtoToEntity(heroDto);
-		HeroEntity savedHero = heroService.addHero(heroEntity);
-		return new ResponseEntity<HeroDto>(HeroDto.entityToDto(savedHero), HttpStatus.OK);
+		/*HeroEntity heroEntity = HeroDto.dtoToEntity(heroDto);
+		HeroEntity savedHero = heroService.addHero(heroEntity);*/
+		HeroEntity savedHero = heroService.insertHero(HeroDto.dtoToEntity(heroDto));
+		return new ResponseEntity<HeroDto>(HeroDto.entityToDto(savedHero), HttpStatus.CREATED);
 	}
 	
 	

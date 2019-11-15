@@ -28,4 +28,6 @@ public interface IHeroService {
 	
 	HeroEntity addHero(HeroEntity heroEntity);
 	
+	HeroEntity insertHero(HeroEntity heroEntity);
+	
 }

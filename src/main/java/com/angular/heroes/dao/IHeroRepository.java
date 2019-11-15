@@ -30,4 +30,8 @@ public interface IHeroRepository extends ICommonRepository<HeroEntity, Long>{
 	
 	@Query(value = "INSERT INTO hero (hero_name) values (:heroName)", nativeQuery = true)
 	void InsertHero(@Param("heroName") String heroName);
+	
+	@SuppressWarnings("unchecked")
+	HeroEntity save(HeroEntity heroEntity);
+
 }
