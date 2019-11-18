@@ -97,8 +97,4 @@ public class HeroDto implements Serializable{
 	}
 	
 	
-
-	
-	
-	
 }

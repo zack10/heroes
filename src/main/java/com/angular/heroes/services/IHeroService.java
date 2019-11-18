@@ -16,10 +16,10 @@ import com.angular.heroes.dao.entities.HeroEntity;
 public interface IHeroService {
 	
 	/**
-	 * a completer ...
+	 * 
 	 * 
 	 * @param void
-	 * @return Optional<HeroEntity>
+	 * @return List<HeroEntity>
 	 * @throws Exception
 	 */
 	List<HeroEntity> getHeroes();
@@ -29,5 +29,9 @@ public interface IHeroService {
 	HeroEntity addHero(HeroEntity heroEntity);
 	
 	HeroEntity insertHero(HeroEntity heroEntity);
+	
+	void deleteHero(Long heroId);
+	
+	List<HeroEntity> searchHeroes(String heroName);
 	
 }

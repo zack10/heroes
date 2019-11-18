@@ -53,4 +53,15 @@ public class HeroService implements IHeroService {
 		return savedHero;
 	}
 
+	@Override
+	public void deleteHero(Long heroId) {
+		heroRepository.deleteHero(heroId);
+	}
+
+	@Override
+	public List<HeroEntity> searchHeroes(String heroName) {
+		List<HeroEntity> searchedHeroes = heroRepository.searchHeroes(heroName);
+		return searchedHeroes;
+	}
+
 }
