@@ -25,7 +25,7 @@ import com.angular.heroes.dao.entities.HeroEntity;
 @Repository
 public interface IHeroRepository extends ICommonRepository<HeroEntity, Long> {
 	
-	@Query("SELECT hr FROM HeroEntity hr WHERE id = ?1")
+	@Query("SELECT hr FROM HeroEntity hr WHERE hr.id = ?1")
 	HeroEntity FindByHeroId(@Param("heroId") Long heroId);
 	
 	@Query("SELECT hr FROM HeroEntity hr")
@@ -39,7 +39,7 @@ public interface IHeroRepository extends ICommonRepository<HeroEntity, Long> {
 	
 	@Modifying
 	@Transactional
-	@Query("DELETE FROM HeroEntity hr WHERE id = ?1")
+	@Query("DELETE FROM HeroEntity hr WHERE hr.id = ?1")
 	void deleteHero(@Param("heroId") Long heroId);
 	
 	@Query("SELECT hr FROM HeroEntity AS hr WHERE hr.heroName LIKE CONCAT('%', :heroName, '%')")
