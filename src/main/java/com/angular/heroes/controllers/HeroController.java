@@ -81,6 +81,4 @@ public class HeroController {
 		return new ResponseEntity<List<HeroDto>>(heroDtos, HttpStatus.OK);
 	}
 	
-	
-	
 }
