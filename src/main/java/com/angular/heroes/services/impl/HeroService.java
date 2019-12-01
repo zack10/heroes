@@ -49,8 +49,7 @@ public class HeroService implements IHeroService {
 
 	@Override
 	public HeroEntity insertHero(HeroEntity heroEntity) {
-		HeroEntity savedHero = heroRepository.save(heroEntity);
-		return savedHero;
+		return heroRepository.save(heroEntity);
 	}
 
 	@Override
@@ -60,8 +59,7 @@ public class HeroService implements IHeroService {
 
 	@Override
 	public List<HeroEntity> searchHeroes(String heroName) {
-		List<HeroEntity> searchedHeroes = heroRepository.searchHeroes(heroName);
-		return searchedHeroes;
+		return heroRepository.searchHeroes(heroName);
 	}
 
 }
