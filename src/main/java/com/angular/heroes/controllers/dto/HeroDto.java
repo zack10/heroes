@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @version : 1.0
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HeroDto implements Serializable{
+public class HeroDto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -34,7 +34,7 @@ public class HeroDto implements Serializable{
 	public HeroDto() {
 		super();
 	}
-	
+
 	public HeroDto(@NotNull long id, @Size(max = 255) String name) {
 		super();
 		this.id = id;
